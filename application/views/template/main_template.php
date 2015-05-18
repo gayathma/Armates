@@ -100,7 +100,7 @@
                         <div id="container" class="clearfix">
                             <div class="element  clearfix col2-3 services auto">
                                 <div class="col2-3 auto">
-                                    <figure class="images"> <img src="images/03_preview03.jpg" alt="" /></figure>
+                                    <figure class="images"> <img src="<?php echo base_url(); ?>application_resources/images/03_preview03.jpg" alt="" /></figure>
                                 </div>
                                 <div class="col2-3 auto white-bottom">
                                     <p class="small">Services</p>
@@ -109,7 +109,7 @@
                             </div>
                             <div class="element  clearfix col2-3 blog auto">
                                 <div class="col2-3 auto">
-                                    <figure class="images"> <img src="images/05_preview05.jpg" alt="" /></figure>
+                                    <figure class="images"> <img src="<?php echo base_url(); ?>application_resources/images/05_preview05.jpg" alt="" /></figure>
                                 </div>
                                 <div class="col2-3 auto white-bottom">
                                     <p class="small">Journal</p>
@@ -118,7 +118,7 @@
                             </div>
                             <div class="element  clearfix col2-3 contact auto">
                                 <div class="col2-3 auto">
-                                    <figure class="images"> <img src="images/27_preview27.jpg" alt="" /></figure>
+                                    <figure class="images"> <img src="<?php echo base_url(); ?>application_resources/images/27_preview27.jpg" alt="" /></figure>
                                 </div>
                                 <div class="col2-3 auto white-bottom">
                                     <p class="small">Contact</p>
@@ -133,7 +133,7 @@
                                             <div class="sliphoveritemTitle" style="border-radius: 0px; width: 100%; height: 100%; box-sizing: border-box; padding: 30px; overflow: auto; position: absolute; color: rgb(255, 255, 255); left: -100%; bottom: 0px; background-color: rgba(0, 0, 0, 0.6);">
                                                 <div style="position: relative; width: 235px; height: 220px; display: block; text-align: left;">
                                                     <span>Augmented Reality Apps</span>
-                                                    <i>→</i></div></div></div><img src="images/ar.jpg" alt="<span>Augmented Reality Apps</span><i><i>→</i></i>" class="slip"> </figure>
+                                                    <i>→</i></div></div></div><img src="<?php echo base_url(); ?>application_resources/images/ar.jpg" alt="<span>Augmented Reality Apps</span><i><i>→</i></i>" class="slip"> </figure>
                                 </a>
 
 
@@ -144,13 +144,13 @@
                                     </h2> -->
                             </div>
                             <div class="element  clearfix col1-3 home portfolio photography"> <a href="3d-product-design.php" title="">
-                                    <figure class="images"> <img src="images/work05.jpg" alt="<span>Stand out your products</span><i>→</i>" class="slip" /> </figure>
+                                    <figure class="images"> <img src="<?php echo base_url(); ?>application_resources/images/work05.jpg" alt="<span>Stand out your products</span><i>→</i>" class="slip" /> </figure>
                                 </a> </div>
                             <div class="element  clearfix col1-3 home portfolio webdesign"> <a href="project.html" title="">
-                                    <figure class="images"> <img src="images/work01.jpg" alt="<span>Lost Malawi Tea</span><i>→</i>" class="slip" /> </figure>
+                                    <figure class="images"> <img src="<?php echo base_url(); ?>application_resources/images/work01.jpg" alt="<span>Lost Malawi Tea</span><i>→</i>" class="slip" /> </figure>
                                 </a> </div>
                             <div class="element clearfix col1-3 about hybrid">
-                                <div class="images"> <img src="images/about02.jpg" alt="John Doe" /> </div>
+                                <div class="images"> <img src="<?php echo base_url(); ?>application_resources/images/about02.jpg" alt="John Doe" /> </div>
                                 <div class="elem-content">
                                     <p class="small">Founder</p>
                                     <h3>John Doe</h3>
@@ -167,7 +167,7 @@
                                 </div>
                             </div>
                             <div class="element clearfix col1-3 about hybrid">
-                                <div class="images"> <img src="images/about01.jpg" alt="Mark Smith" /> </div>
+                                <div class="images"> <img src="<?php echo base_url(); ?>application_resources/images/about01.jpg" alt="Mark Smith" /> </div>
                                 <div class="elem-content">
                                     <p class="small">Designer</p>
                                     <h3>Mark Smith</h3>
@@ -184,7 +184,7 @@
                                 </div>
                             </div>
                             <div class="element clearfix col1-3 about hybrid">
-                                <div class="images"> <img src="images/about03.jpg" alt="Jane McDonald" /> </div>
+                                <div class="images"> <img src="<?php echo base_url(); ?>application_resources/images/about03.jpg" alt="Jane McDonald" /> </div>
                                 <div class="elem-content">
                                     <p class="small">Developer</p>
                                     <h3>Jane McDonald</h3>
@@ -201,7 +201,7 @@
                                 </div>
                             </div>
                             <div class="element  clearfix col1-3 home portfolio illustration"> <a href="project.html" title="">
-                                    <figure class="images"> <img src="images/work03.jpg" alt="<span>iPhone6 Mockup</span><i>→</i>" class="slip" /> </figure>
+                                    <figure class="images"> <img src="<?php echo base_url(); ?>application_resources/images/work03.jpg" alt="<span>iPhone6 Mockup</span><i>→</i>" class="slip" /> </figure>
                                 </a> </div>
                             <div class="element  clearfix col1-3 home grey"> <a href="http://player.vimeo.com/video/98330466?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff=0&amp;autoplay=1" data-title="Our Reel" class="video-popup whole-tile">
                                     <p class="small">Vimeo</p>
@@ -212,7 +212,7 @@
                                         <span class="arrow">→</span></div>
                                 </a> </div>
                             <div class="element  clearfix col1-3 portfolio photography home"> <a href="project.html" title="">
-                                    <figure class="images"> <img src="images/work02.jpg" alt="<span>Swell Paper Can</span><i>→</i>" class="slip" /> </figure>
+                                    <figure class="images"> <img src="<?php echo base_url(); ?>application_resources/images/work02.jpg" alt="<span>Swell Paper Can</span><i>→</i>" class="slip" /> </figure>
                                 </a> </div>
                             <div class="element  clearfix col1-3 services grey auto">
                                 <div class="icons illustration"></div>
@@ -238,7 +238,7 @@
                                 </ul>
                             </div>
                             <div class="element  clearfix col1-3 portfolio photography home"> <a href="project.html" title="">
-                                    <figure class="images"> <img src="images/work06.jpg" alt="<span>Realistic Tablet Mockup</span><i>→</i>" class="slip" /> </figure>
+                                    <figure class="images"> <img src="<?php echo base_url(); ?>application_resources/images/work06.jpg" alt="<span>Realistic Tablet Mockup</span><i>→</i>" class="slip" /> </figure>
                                 </a> </div>
                             <div class="element  clearfix col1-3 home grey"> <a href="#" data-title="" class="whole-tile">
                                     <p class="small">Facebook</p>
@@ -249,7 +249,7 @@
                                         <span class="arrow">→</span></div>
                                 </a> </div>
                             <div class="element  clearfix col1-3 portfolio photography home"> <a href="slider.html" title="">
-                                    <figure class="images"> <img src="images/work04.jpg" alt="<span>Square Magazine</span><i>→</i>" class="slip" /> </figure>
+                                    <figure class="images"> <img src="<?php echo base_url(); ?>application_resources/images/work04.jpg" alt="<span>Square Magazine</span><i>→</i>" class="slip" /> </figure>
                                 </a> </div>
                             <div class="element  clearfix col1-3 about grey"> <a href="http://www.awwwards.com/" data-title="" target="_blank" class="whole-tile">
                                     <p class="small">Awwwards</p>
@@ -324,7 +324,7 @@
                                 </a> </div>
                             <div class="element  clearfix col1-3 blog auto"><a href="post.html" title="">
                                     <div class="col1-3 auto">
-                                        <figure class="images"> <img src="images/blog01.jpg" alt="" /> </figure>
+                                        <figure class="images"> <img src="<?php echo base_url(); ?>application_resources/images/blog01.jpg" alt="" /> </figure>
                                     </div>
                                     <div class="col1-3 white-bottom">
                                         <p class="small">Nov 8, 2014</p>
@@ -346,13 +346,13 @@
                                     <div class="bottom"> <span class="arrow">→</span></div>
                                 </a> </div>
                             <div class="element  clearfix col1-3 portfolio illustration"> <a href="project.html" title="">
-                                    <figure class="images"> <img src="images/work07.jpg" alt="<span>Invitation Greeting Card</span><i>→</i>" class="slip" /> </figure>
+                                    <figure class="images"> <img src="<?php echo base_url(); ?>application_resources/images/work07.jpg" alt="<span>Invitation Greeting Card</span><i>→</i>" class="slip" /> </figure>
                                 </a> </div>
                             <div class="element  clearfix col1-3 portfolio webdesign"> <a href="project.html" title="">
-                                    <figure class="images"> <img src="images/work08.jpg" alt="<span>Black Book</span><i>→</i>" class="slip" /> </figure>
+                                    <figure class="images"> <img src="<?php echo base_url(); ?>application_resources/images/work08.jpg" alt="<span>Black Book</span><i>→</i>" class="slip" /> </figure>
                                 </a> </div>
                             <div class="element  clearfix col1-3 portfolio webdesign"> <a href="project.html" title="">
-                                    <figure class="images"> <img src="images/work09.jpg" alt="<span>Can Mockup</span><i>→</i>" class="slip" /> </figure>
+                                    <figure class="images"> <img src="<?php echo base_url(); ?>application_resources/images/work09.jpg" alt="<span>Can Mockup</span><i>→</i>" class="slip" /> </figure>
                                 </a> </div>
                             <div class="element  clearfix col1-3 blog grey">
                                 <div class="icons tags"></div>
@@ -404,7 +404,7 @@
                                         <span class="arrow">→</span></div>
                                 </a> </div>
                             <div class="element  clearfix col1-3 portfolio illustration"> <a href="project.html" title="">
-                                    <figure class="images"> <img src="images/work10.jpg" alt="<span>Book Cover</span><i>→</i>" class="slip" /> </figure>
+                                    <figure class="images"> <img src="<?php echo base_url(); ?>application_resources/images/work10.jpg" alt="<span>Book Cover</span><i>→</i>" class="slip" /> </figure>
                                 </a> </div>
                         </div>
                         <!-- end #container -->
