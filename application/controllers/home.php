@@ -20,23 +20,27 @@ class Home extends CI_Controller {
 
     function index() {
 
-        $articles_service = new Articles_service();
+        $articles_service    = new Articles_service();
+        $article_cat_service = new Article_categories_service();
 
         $data['results'] = $articles_service->get_all_articles();
+        $data['cats']    = $article_cat_service->get_all_article_categories();
 
-        $parials = array('content' => 'article_list_view');
+        $parials = array('content' => 'article_list_view', 'nav' => 'template/nav');
         $this->template->load('template/main_template', $parials, $data);
     }
-    
+
     function article_detail($id) {
 
-        $articles_service = new Articles_service();
+        $articles_service        = new Articles_service();
         $articles_images_service = new Article_images_service();
+        $article_cat_service     = new Article_categories_service();
 
-        $data['article'] = $articles_service->get_article_by_id($id);
+        $data['article']        = $articles_service->get_article_by_id($id);
         $data['article_images'] = $articles_images_service->get_images_for_article($id);
+        $data['cats']           = $article_cat_service->get_all_article_categories();
 
-        $parials = array('content' => 'article_detail_view');
+        $parials = array('content' => 'article_detail_view', 'nav' => 'template/nav');
         $this->template->load('template/main_template', $parials, $data);
     }
 

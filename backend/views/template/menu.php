@@ -41,10 +41,9 @@
         </a> 
         <ul class="sub">
             <li><a href="<?php echo site_url(); ?>/contents/load_contents_by_hcode/ABOUTUS">About Us</a></li>
-            <li><a href="<?php echo site_url(); ?>/contents/load_contents_by_hcode/RIGHTSIDESNIPPET">Rightside Snippet</a></li>
-            <li><a href="<?php echo site_url(); ?>/contents/load_contents_by_hcode/WELCOMEHOMEPAGE">Welcomer Message Home Page</a></li>
-            <li><a href="<?php echo site_url(); ?>/contents/load_contents_by_hcode/WELCOMEINNERPAGE">Welcomer Message </a></li>
-            <li><a href="<?php echo site_url(); ?>/contents/load_contents_by_hcode/WHYUS">Why Us</a></li>
+            <li><a href="<?php echo site_url(); ?>/contents/load_contents_by_hcode/SERVICES">Services</a></li>
+            <li><a href="<?php echo site_url(); ?>/contents/load_contents_by_hcode/BLOG">Blog</a></li>
+            <li><a href="<?php echo site_url(); ?>/contents/load_contents_by_hcode/CONTACT">Contact</a></li>
         </ul>
     </li>
 

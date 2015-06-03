@@ -2,8 +2,6 @@
 
 class Articles_service extends CI_Model {
 
- 
-
     public function get_all_articles() {
 
         $this->db->select('articles.*,article_categories.name as category_name,user.name as added_by_user');
@@ -19,19 +17,17 @@ class Articles_service extends CI_Model {
     function add_new_article($article_model) {
         return $this->db->insert('articles', $article_model);
     }
-    
-    
+
     /*
      * This service function is to delete a articles
      */
+
     function delete_article($article_id) {
         $data = array('is_deleted' => '1');
         $this->db->where('id', $article_id);
         return $this->db->update('articles', $data);
     }
-    
 
-    
     /*
      * This is the service function to get all approved articles
      */
@@ -55,21 +51,40 @@ class Articles_service extends CI_Model {
         $query = $this->db->get();
         return $query->result();
     }
-    
-     /*
+
+    /*
      * This service function is to update publish status of a article
      */
+
     public function publish_article($vehicle_advertisments_model) {
         $data = array('is_published' => $vehicle_advertisments_model->get_is_published());
         $this->db->update('articles', $data, array('id' => $vehicle_advertisments_model->get_id()));
         return $this->db->affected_rows();
     }
-    
+
     function get_article_by_id($id) {
 
         $query = $this->db->get_where('articles', array('id' => $id));
         return $query->row();
     }
-    
+
+    function update_article($articles_model) {
+
+        $data = array(
+            'article_category' => $articles_model->get_article_category(),
+            'title'            => $articles_model->get_title(),
+            'client'           => $articles_model->get_client(),
+            'challenge'        => $articles_model->get_challenge(),
+            'solution'         => $articles_model->get_solution(),
+            'result'           => $articles_model->get_result(),
+            'description'      => $articles_model->get_description(),
+            'css_class'        => $articles_model->get_css_class(),
+            'updated_date'     => $articles_model->get_updated_date(),
+            'updated_by'       => $articles_model->get_updated_by()
+        );
+
+        $this->db->where('id', $articles_model->get_id());
+        return $this->db->update('articles', $data);
+    }
 
 }

@@ -2,12 +2,11 @@
     <thead>
         <tr>
             <th>Title</th>
-            <th>Chassis No</th>
-            <th>Transmission</th>
-            <th>Fuel Type</th>
-            <th>Body Type</th>
-            <th>Color</th>
-            <th>Price</th>
+            <th>Category</th>
+            <th>Client</th>
+            <th>Challenge</th>
+            <th>Solution</th>
+            <th>Result</th>
             <th>Added By</th>
             <th>Active Status</th>
             <th>Actions</th>
@@ -15,29 +14,26 @@
     </thead>
     <tbody>
         <?php foreach ($results as $result) { ?>
-            <tr id="advertisement_<?php echo $result->id; ?>">
+            <tr id="article_<?php echo $result->id; ?>">
                 <td class="p-name">
-                    <a href="project_details.html"><?php echo ucfirst($result->manufacture . ' ' . $result->model . ' ' . $result->year); ?></a>
+                    <a href="#"><?php echo ucfirst($result->title); ?></a>
                     <br>
                     <small>Created <?php echo date('Y-m-d', strtotime($result->added_date)); ?></small>
                 </td>
                 <td class="p-team">
-                    <?php echo $result->chassis_no; ?>
+                    <?php echo $result->category_name; ?>
                 </td>
                 <td class="p-team">
-                    <?php echo $result->transmission; ?>
+                    <?php echo $result->client; ?>
                 </td>
                 <td class="p-team">
-                    <?php echo $result->fuel_type; ?>
+                    <?php echo $result->challenge; ?>
                 </td>
                 <td class="p-team">
-                    <?php echo $result->body_type; ?>
+                    <?php echo $result->solution; ?>
                 </td>
                 <td class="p-team">
-                    <?php echo $result->colour; ?>
-                </td>
-                <td class="p-progress">
-                    <?php echo $result->price; ?>
+                    <?php echo $result->result; ?>
                 </td>
                 <td class="p-progress">
                     <?php echo $result->added_by_user; ?>
@@ -45,21 +41,26 @@
                 <td>
                     <?php if ($result->is_published == '1') { ?>
                         <span class="label label-primary">Active</span>
+                        <!--<a class="btn btn-success btn-xs"  onclick="change_article_status(<?php echo $result->id; ?>, 2, this);"><i class="fa fa-arrow-up " title="Reject Advertisement"></i></a>--> 
                     <?php } elseif ($result->is_published == '0') { ?>
-                        <span class="label label-default">Pending</span>  
+                        <span class="label label-default">Pending</span> 
+                        <!--<a class="btn btn-success btn-xs"  onclick="change_article_status(<?php echo $result->id; ?>, 1, this);"><i class="fa fa-arrow-up " title="Approve Advertisement"></i></a>--> 
                     <?php } else { ?>
                         <span class="label label-danger">Rejected</span>  
                     <?php } ?>
+
+
                 </td>
                 <td>
-                    <a class="btn btn-danger btn-xs" onclick="delete_advertisement(<?php echo $result->id; ?>)"><i class="fa fa-trash-o " title="Remove"></i></a>
-                    <a href="project_details.html" class="btn btn-info btn-xs"><i class="fa fa-folder" title="View"></i></a>
+                    <a href="<?php echo site_url(); ?>/articles/edit_article/<?php echo $result->id; ?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil" title="Edit Article"></i></a>
+                    <a class="btn btn-danger btn-xs"  onclick="delete_article(<?php echo $result->id; ?>);"><i class="fa fa-trash-o " title="Remove"></i></a>
+                    <a href="<?php echo site_url(); ?>/articles/upload_images/<?php echo $result->id; ?>" class="btn btn-info btn-xs"><i class="fa  fa-cloud-upload" title="Upload Images"></i></a>
 
                 </td>
             </tr>
 
-        <?php }
+            <?php
+        }
         ?>
-
     </tbody>
 </table>

@@ -13,10 +13,10 @@
     ?>
 </div>
 <div class="element clearfix col1-3 home grey auto">
-    <h3><strong><?php echo $article->title; ?></strong></h3>
+    <h3><strong><?php echo ucfirst($article->title); ?></strong></h3>
     <div class="ct-part">
         <p class="small">Category</p>
-        <p><?php echo $article->category_name; ?></p>
+        <p><?php echo ucfirst($article->category_name); ?></p>
         <p class="small">Date</p>
         <p><?php echo date('F d, Y ',strtotime($article->added_date)); ?></p>
         <p class="small">Client</p>

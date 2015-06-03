@@ -10,6 +10,7 @@ class Articles_model extends CI_Model {
     var $solution;
     var $result;
     var $description;
+    var $css_class;
     var $is_published;
     var $is_deleted;
     var $added_date;
@@ -83,6 +84,14 @@ class Articles_model extends CI_Model {
 
     public function set_description($description) {
         $this->description = $description;
+    }
+
+    public function get_css_class() {
+        return $this->css_class;
+    }
+
+    public function set_css_class($css_class) {
+        $this->css_class = $css_class;
     }
 
     public function get_is_published() {

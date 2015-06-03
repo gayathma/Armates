@@ -49,9 +49,9 @@ class Articles extends CI_Controller {
         $article_categories_service = new Article_categories_service();
 
 
-        $data['heading']    = "Add New Article";
-        $data['categories'] = $article_categories_service->get_all_article_categoriess();
-
+        $data['heading']     = "Add New Article";
+        $data['categories']  = $article_categories_service->get_all_article_categoriess();
+        $data['css_classes'] = $this->config->item('css_classes');
 
         $parials = array('content' => 'articles/add_new_article');
         $this->template->load('template/main_template', $parials, $data);
@@ -68,6 +68,7 @@ class Articles extends CI_Controller {
         $articles_model->set_solution($this->input->post('solution', TRUE));
         $articles_model->set_result($this->input->post('result', TRUE));
         $articles_model->set_description($this->input->post('description', TRUE));
+        $articles_model->set_css_class($this->input->post('css_class', TRUE));
         $articles_model->set_added_by($this->session->userdata('USER_ID'));
         $articles_model->set_added_date(date("Y-m-d H:i:s"));
         $articles_model->set_is_published('1');
@@ -144,6 +145,42 @@ class Articles extends CI_Controller {
 
             echo $article_images_service->add_new_images($article_images_model);
         }
+    }
+
+    function edit_article($article_id) {
+
+        $perm = Access_controll_service::check_access('EDIT_ADVERTISEMENT');
+        if ($perm) {
+            $articles_service           = new Articles_service();
+            $article_categories_service = new Article_categories_service();
+
+            $data['heading']     = "Edit Article";
+            $data['article']     = $articles_service->get_article_by_id($article_id);
+            $data['categories']  = $article_categories_service->get_all_article_categoriess();
+            $data['css_classes'] = $this->config->item('css_classes');
+
+            $parials = array('content' => 'articles/edit_new_article');
+            $this->template->load('template/main_template', $parials, $data);
+        }
+    }
+
+    function update_article() {
+        $articles_service = new Articles_service();
+        $articles_model   = new Articles_model();
+
+        $articles_model->set_id($this->input->post('article_id', TRUE));
+        $articles_model->set_article_category($this->input->post('category', TRUE));
+        $articles_model->set_title($this->input->post('title', TRUE));
+        $articles_model->set_client($this->input->post('client', TRUE));
+        $articles_model->set_challenge($this->input->post('challenge', TRUE));
+        $articles_model->set_solution($this->input->post('solution', TRUE));
+        $articles_model->set_result($this->input->post('result', TRUE));
+        $articles_model->set_description($this->input->post('description', TRUE));
+        $articles_model->set_css_class($this->input->post('css_class', TRUE));
+        $articles_model->set_updated_by($this->session->userdata('USER_ID'));
+        $articles_model->set_updated_date(date("Y-m-d H:i:s"));
+
+        echo $articles_service->update_article($articles_model);
     }
 
 }

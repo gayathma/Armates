@@ -4,10 +4,9 @@ class Articles_service extends CI_Model {
 
     public function get_all_articles() {
 
-        $this->db->select('articles.*,article_categories.name as category_name,article_images.image_path');
+        $this->db->select('articles.*,article_categories.name as category_name');
         $this->db->from('articles');
         $this->db->join('article_categories', 'article_categories.id = articles.article_category');
-        $this->db->join('article_images', 'article_images.article_id = articles.id', 'left');
         $this->db->where('articles.is_deleted', '0');
         $this->db->where('articles.is_published', '1');
         $this->db->order_by("articles.added_date", "desc");

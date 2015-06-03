@@ -70,6 +70,7 @@
 
                             </td>
                             <td>
+                                <a href="<?php echo site_url();?>/articles/edit_article/<?php echo $result->id; ?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil" title="Edit Article"></i></a>
                                 <a class="btn btn-danger btn-xs"  onclick="delete_article(<?php echo $result->id; ?>);"><i class="fa fa-trash-o " title="Remove"></i></a>
                                 <a href="<?php echo site_url();?>/articles/upload_images/<?php echo $result->id; ?>" class="btn btn-info btn-xs"><i class="fa  fa-cloud-upload" title="Upload Images"></i></a>
 
@@ -91,11 +92,11 @@
                 //delete article
                 function delete_article(id) {
 
-                    if (confirm('Are you sure want to delete this Vehicle Advertisement ?')) {
+                    if (confirm('Are you sure want to delete this Article?')) {
 
                         $.ajax({
                             type: "POST",
-                            url: site_url + '/articles/delete_article',
+                            url: site_url + '/articles/delete_articles',
                             data: "id=" + id,
                             success: function(msg) {
                                 //alert(msg);

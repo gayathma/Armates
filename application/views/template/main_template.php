@@ -5,7 +5,6 @@
 <!--[if IE 9]>     <html class="no-js ie9 lt-ie10 oldie" lang="en-US"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" dir="ltr" lang="en-US"> <!--<![endif]-->
 
-    <!-- Mirrored from ppp-templates.de/hs/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 03 Jan 2015 09:39:21 GMT -->
     <head>
         <meta charset="utf-8" />
         <!--[if IE]> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <![endif]-->
@@ -44,7 +43,7 @@
             <div id="background-color"></div>
             <header id="header">
                 <div class="logo-wrapper">
-                    <h1 id="logo" class="fadeInDown animated"><a href="index.php"></a></h1>
+                    <h1 id="logo" class="fadeInDown animated"><a href="<?php echo site_url();?>"></a></h1>
                     <div class="tagline"></div>
                 </div>
                 <div id="menu-button">
@@ -58,41 +57,7 @@
             <!-- end header -->
             <!-- start main nav -->
             <nav id="main-nav">
-                <div id="menu-close-button">&times;</div>
-                <ul id="options" class="option-set clearfix" data-option-key="filter">
-                    <li class="selected"> <a href="#home">Home</a> </li>
-                    <li> <a href="#portfolio" class="sub-nav-toggle">Portfolio</a>
-                        <ul class="sub-nav hidden">
-                            <li> <a href="#illustration">Illustration</a> </li>
-                            <li> <a href="#photography">Photography</a> </li>
-                            <li> <a href="#webdesign">Webdesign</a> </li>
-                            <li> <a href="#portfolio">Show All</a> </li>
-                        </ul>
-                    </li>
-                    <li> <a href="#services">Services</a> </li>
-                    <li> <a href="#about">About</a> </li>
-                    <li> <a href="#pricing">Pricing</a> </li>
-                    <li> <a href="#blog">Blog</a> </li>
-                    <li> <a href="#contact">Contact</a> </li>
-                </ul>
-                <div class="additional-links">
-                    <ul>
-                        <li> <a href="project.html">Project Detail</a> </li>
-                        <li> <a href="icons.html">Icons</a> </li>
-                        <li> <a href="slider.html">Slideshow</a> </li>
-                        <li> <a href="video.html">Vimeo</a> </li>
-                        <li> <a href="youtube.html">Youtube</a> </li>
-                        <li> <a href="post.html">Post Page</a> </li>
-                    </ul>
-                </div>
-                <div class="social-links">
-                    <ul class="social-list clearfix">
-                        <li> <a href="#" class="pinterest"></a> </li>
-                        <li> <a href="#" class="twitter"></a> </li>
-                        <li> <a href="#" class="gplus"></a> </li>
-                        <li> <a href="#" class="facebook"></a> </li>
-                    </ul>
-                </div>
+                <?php echo $nav;?>
             </nav>
             <!-- end main nav -->
             <div class="content-wrapper">

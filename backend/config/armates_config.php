@@ -5,7 +5,7 @@ if (!defined('BASEPATH'))
 //Custom configuration file.
 
 //This is to set the site title
-$config['APPLICATION_MAIN_TITLE'] = "AutoVille ";
+$config['APPLICATION_MAIN_TITLE'] = "Armates ";
 $config['LOGIN_OPTION']           = 1;
 
 
@@ -19,9 +19,4 @@ $config['REGISTERED'] = 3;
 $systems= array('ADVERTISEMENT','USERS','PAGES','REVIEWS','VEHICLE SPECS','SETTINGS');
 $config['SYSTEMS']=$systems;
 
-
-//Vehicle Types
-$config['CARS']       = 1;
-$config['BIKES']      = 2;
-$config['COMMERCIAL'] = 3;
-
+$config['css_classes']= array('col2-3','col1-3');
