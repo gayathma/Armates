@@ -78,6 +78,7 @@ class Articles_service extends CI_Model {
             'solution'         => $articles_model->get_solution(),
             'result'           => $articles_model->get_result(),
             'description'      => $articles_model->get_description(),
+            'video_url'        => $articles_model->get_video_url(),
             'css_class'        => $articles_model->get_css_class(),
             'updated_date'     => $articles_model->get_updated_date(),
             'updated_by'       => $articles_model->get_updated_by()

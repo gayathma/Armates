@@ -50,6 +50,13 @@
                                 </select>
                             </div>
                         </div>
+                        
+                        <div class="form-group">
+                            <div class="col-lg-6">
+                                <label for="vid_url">Video Url</label>
+                                <input id="vid_url" class="form-control" name="vid_url" type="text" placeholder="Enter Video URL">
+                            </div>
+                        </div>
 
                         <div class="form-group">
                             <div class="col-lg-6">

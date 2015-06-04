@@ -10,7 +10,7 @@
         <div class="adv-table">
             <div class="clearfix">
                 <div class="btn-group">
-                    <a id="editable-sample_new" class="btn btn-shadow btn-primary" href="<?php echo site_url();?>/articles/add_article_view" >
+                    <a id="editable-sample_new" class="btn btn-shadow btn-primary" href="<?php echo site_url(); ?>/articles/add_article_view" >
                         Add New
                         <i class="fa fa-plus"></i>
                     </a>
@@ -24,7 +24,6 @@
                         <th>Client</th>
                         <th>Challenge</th>
                         <th>Solution</th>
-                        <th>Result</th>
                         <th>Added By</th>
                         <th>Active Status</th>
                         <th>Actions</th>
@@ -45,14 +44,13 @@
                                 <?php echo $result->client; ?>
                             </td>
                             <td class="p-team">
-                                <?php echo $result->challenge; ?>
+                                <?php echo substr($result->challenge, 0, 20) . ' ...'; ?>
                             </td>
                             <td class="p-team">
-                                <?php echo $result->solution; ?>
+
+                                <?php echo substr($result->solution, 0, 20) . ' ...'; ?>
                             </td>
-                            <td class="p-team">
-                                <?php echo $result->result; ?>
-                            </td>
+
                             <td class="p-progress">
                                 <?php echo $result->added_by_user; ?>
                             </td>
@@ -70,9 +68,10 @@
 
                             </td>
                             <td>
-                                <a href="<?php echo site_url();?>/articles/edit_article/<?php echo $result->id; ?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil" title="Edit Article"></i></a>
+                                <a href="<?php echo site_url(); ?>/articles/edit_article/<?php echo $result->id; ?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil" title="Edit Article"></i></a>
                                 <a class="btn btn-danger btn-xs"  onclick="delete_article(<?php echo $result->id; ?>);"><i class="fa fa-trash-o " title="Remove"></i></a>
-                                <a href="<?php echo site_url();?>/articles/upload_images/<?php echo $result->id; ?>" class="btn btn-info btn-xs"><i class="fa  fa-cloud-upload" title="Upload Images"></i></a>
+                                <a href="<?php echo site_url(); ?>/articles/upload_images/<?php echo $result->id; ?>" class="btn btn-info btn-xs"><i class="fa  fa-cloud-upload" title="Upload Images"></i></a>
+                                <a href="<?php echo site_url(); ?>/articles/image_settings/<?php echo $result->id; ?>" class="btn btn-success btn-xs"><i class="fa  fa-cog" title="Image Settings"></i></a>
 
                             </td>
                         </tr>
@@ -89,67 +88,67 @@
 
 
 <script type="text/javascript">
-                //delete article
-                function delete_article(id) {
+    //delete article
+    function delete_article(id) {
 
-                    if (confirm('Are you sure want to delete this Article?')) {
+        if (confirm('Are you sure want to delete this Article?')) {
 
-                        $.ajax({
-                            type: "POST",
-                            url: site_url + '/articles/delete_articles',
-                            data: "id=" + id,
-                            success: function(msg) {
-                                //alert(msg);
-                                if (msg == 1) {
-                                    //document.getElementById(trid).style.display='none';
-                                    $('#article_' + id).hide();
-                                }
-                                else if (msg == 2) {
-                                    alert('Cannot be deleted as it is already assigned to others. !!');
-                                }
-                            }
-                        });
+            $.ajax({
+                type: "POST",
+                url: site_url + '/articles/delete_articles',
+                data: "id=" + id,
+                success: function(msg) {
+                    //alert(msg);
+                    if (msg == 1) {
+                        //document.getElementById(trid).style.display='none';
+                        $('#article_' + id).hide();
+                    }
+                    else if (msg == 2) {
+                        alert('Cannot be deleted as it is already assigned to others. !!');
                     }
                 }
+            });
+        }
+    }
 
-                function change_article_status(article_id, value, element) {
+    function change_article_status(article_id, value, element) {
 
-                    var condition = 'Do you want to approve this article ?';
-                    if (value == 2) {
-                        condition = 'Do you want to reject this article?';
-                    }
+        var condition = 'Do you want to approve this article ?';
+        if (value == 2) {
+            condition = 'Do you want to reject this article?';
+        }
 
-                    if (confirm(condition)) {
-                        $.ajax({
-                            type: "POST",
-                            url: site_url + '/articles/change_publish_status',
-                            data: "id=" + article_id + "&value=" + value,
-                            success: function(msg) {
-                                if (msg == 1) {
-                                    if (value == 1) {
-                                        $(element).parent().html('<span class="label label-primary">Active</span><a class="btn btn-success btn-xs"  onclick="change_article_status(' + article_id + ', 2, this);"><i class="fa fa-arrow-up " title="Reject Advertisement"></i></a> ');
-                                    } else {
-                                        $(element).parent().html('<span class="label label-danger">Rejected</span> ');
-                                    }
+        if (confirm(condition)) {
+            $.ajax({
+                type: "POST",
+                url: site_url + '/articles/change_publish_status',
+                data: "id=" + article_id + "&value=" + value,
+                success: function(msg) {
+                    if (msg == 1) {
+                        if (value == 1) {
+                            $(element).parent().html('<span class="label label-primary">Active</span><a class="btn btn-success btn-xs"  onclick="change_article_status(' + article_id + ', 2, this);"><i class="fa fa-arrow-up " title="Reject Advertisement"></i></a> ');
+                        } else {
+                            $(element).parent().html('<span class="label label-danger">Rejected</span> ');
+                        }
 
-                                } else if (msg == 2) {
-                                    alert('Error !!');
-                                }
-                            }
-                        });
+                    } else if (msg == 2) {
+                        alert('Error !!');
                     }
                 }
+            });
+        }
+    }
 
-                //Reloading articles
-                function reload_articles() {
-                    $('#article_div').html('<center><div class="load-anim"><i id="animate-icon" class="fa fa-spinner fa-3x fa-spin loader-icon-margin"></i></div></center>');
-                    var x = $('.load-anim').show().delay(5000);
-                    $.post(site_url + '/articles/search_articles', {}, function(msg) {
-                        $('#article_div').html('');
-                        $('#article_div').html(msg);
-                        x.fadeOut('slow');
-                    });
-                }
+    //Reloading articles
+    function reload_articles() {
+        $('#article_div').html('<center><div class="load-anim"><i id="animate-icon" class="fa fa-spinner fa-3x fa-spin loader-icon-margin"></i></div></center>');
+        var x = $('.load-anim').show().delay(5000);
+        $.post(site_url + '/articles/search_articles', {}, function(msg) {
+            $('#article_div').html('');
+            $('#article_div').html(msg);
+            x.fadeOut('slow');
+        });
+    }
 
 </script>
 

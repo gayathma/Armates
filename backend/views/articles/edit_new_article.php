@@ -50,6 +50,13 @@
                                 </select>
                             </div>
                         </div>
+                        
+                        <div class="form-group">
+                            <div class="col-lg-6">
+                                <label for="vid_url">Video Url</label>
+                                <input id="vid_url" class="form-control" name="vid_url" type="text" value="<?php echo $article->video_url; ?>">
+                            </div>
+                        </div>
 
                         <div class="form-group">
                             <div class="col-lg-6">

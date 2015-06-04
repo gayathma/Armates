@@ -15,20 +15,6 @@ class Articles_service extends CI_Model {
         return $query->result();
     }
 
-    function add_new_article($article_model) {
-        return $this->db->insert('articles', $article_model);
-    }
-
-    /*
-     * This service function is to delete a articles
-     */
-
-    function delete_article($article_id) {
-        $data = array('is_deleted' => '1');
-        $this->db->where('id', $article_id);
-        return $this->db->update('articles', $data);
-    }
-
     /*
      * This is the service function to get all approved articles
      */
@@ -51,16 +37,6 @@ class Articles_service extends CI_Model {
         $this->db->order_by("articles.added_date", "desc");
         $query = $this->db->get();
         return $query->result();
-    }
-
-    /*
-     * This service function is to update publish status of a article
-     */
-
-    public function publish_article($vehicle_advertisments_model) {
-        $data = array('is_published' => $vehicle_advertisments_model->get_is_published());
-        $this->db->update('articles', $data, array('id' => $vehicle_advertisments_model->get_id()));
-        return $this->db->affected_rows();
     }
 
     function get_article_by_id($id) {

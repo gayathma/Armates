@@ -6,7 +6,6 @@
             <th>Client</th>
             <th>Challenge</th>
             <th>Solution</th>
-            <th>Result</th>
             <th>Added By</th>
             <th>Active Status</th>
             <th>Actions</th>
@@ -27,14 +26,13 @@
                     <?php echo $result->client; ?>
                 </td>
                 <td class="p-team">
-                    <?php echo $result->challenge; ?>
+                    <?php echo substr($result->challenge, 0, 20) . ' ...'; ?>
                 </td>
                 <td class="p-team">
-                    <?php echo $result->solution; ?>
+
+                    <?php echo substr($result->solution, 0, 20) . ' ...'; ?>
                 </td>
-                <td class="p-team">
-                    <?php echo $result->result; ?>
-                </td>
+
                 <td class="p-progress">
                     <?php echo $result->added_by_user; ?>
                 </td>
@@ -55,6 +53,7 @@
                     <a href="<?php echo site_url(); ?>/articles/edit_article/<?php echo $result->id; ?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil" title="Edit Article"></i></a>
                     <a class="btn btn-danger btn-xs"  onclick="delete_article(<?php echo $result->id; ?>);"><i class="fa fa-trash-o " title="Remove"></i></a>
                     <a href="<?php echo site_url(); ?>/articles/upload_images/<?php echo $result->id; ?>" class="btn btn-info btn-xs"><i class="fa  fa-cloud-upload" title="Upload Images"></i></a>
+                    <a href="<?php echo site_url(); ?>/articles/image_settings/<?php echo $result->id; ?>" class="btn btn-success btn-xs"><i class="fa  fa-cog" title="Image Settings"></i></a>
 
                 </td>
             </tr>

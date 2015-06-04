@@ -68,6 +68,7 @@ class Articles extends CI_Controller {
         $articles_model->set_solution($this->input->post('solution', TRUE));
         $articles_model->set_result($this->input->post('result', TRUE));
         $articles_model->set_description($this->input->post('description', TRUE));
+        $articles_model->set_video_url($this->input->post('vid_url', TRUE));
         $articles_model->set_css_class($this->input->post('css_class', TRUE));
         $articles_model->set_added_by($this->session->userdata('USER_ID'));
         $articles_model->set_added_date(date("Y-m-d H:i:s"));
@@ -86,6 +87,18 @@ class Articles extends CI_Controller {
 
 
         $parials = array('content' => 'articles/upload_images');
+        $this->template->load('template/main_template', $parials, $data);
+    }
+
+    function image_settings($id) {
+        $article_images_service = new Article_images_service();
+
+        $data['heading'] = "Image Settings";
+        $data['id']      = $id;
+        $data['images']  = $article_images_service->get_images_for_article($id);
+
+
+        $parials = array('content' => 'articles/image_settings');
         $this->template->load('template/main_template', $parials, $data);
     }
 
@@ -176,11 +189,23 @@ class Articles extends CI_Controller {
         $articles_model->set_solution($this->input->post('solution', TRUE));
         $articles_model->set_result($this->input->post('result', TRUE));
         $articles_model->set_description($this->input->post('description', TRUE));
+        $articles_model->set_video_url($this->input->post('vid_url', TRUE));
         $articles_model->set_css_class($this->input->post('css_class', TRUE));
         $articles_model->set_updated_by($this->session->userdata('USER_ID'));
         $articles_model->set_updated_date(date("Y-m-d H:i:s"));
 
         echo $articles_service->update_article($articles_model);
+    }
+
+    //image change as main
+    function change_image_main() {
+
+        $article_images_service = new Article_images_service();
+
+        $image_id = $this->input->post('image_id', TRUE);
+        $status   = $this->input->post('main', TRUE);
+
+        echo $article_images_service->main_image($image_id, $status);
     }
 
 }
