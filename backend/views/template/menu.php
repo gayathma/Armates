@@ -54,6 +54,7 @@
         </a> 
         <ul class="sub">
             <li><a  href="<?php echo site_url(); ?>/comments/manage_comments">Website Reviews</a></li>
+            <li><a  href="<?php echo site_url(); ?>/user_log/manage_user_log">User Log</a></li>
         </ul>
     </li>
 

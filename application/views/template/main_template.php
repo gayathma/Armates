@@ -25,6 +25,7 @@
         <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,300,300italic,600,700,800" rel="stylesheet" type="text/css" />
         <link href="http://fonts.googleapis.com/css?family=Merriweather:300,400,700" rel="stylesheet" type="text/css" />
         <script src="<?php echo base_url(); ?>application_resources/js/modernizr.js" type="text/javascript"></script>
+        <script src="<?php echo base_url(); ?>application_resources/js/jquery-1.11.1.min.js" type="text/javascript"></script>
   
     </head>
     <body>
@@ -65,6 +66,9 @@
                     <div class="container">
                         <div id="container" class="clearfix" >
                             <?php echo $content;?>
+                            
+                            <!-- Contact -->
+                            <?php echo $contact;?>
                         </div>
                         <!-- end #container -->
                     </div>
@@ -80,7 +84,7 @@
             <p class="alignleft">Â© 2015, Armates. All Rights Reserved.</p>
             <p class="alignright">No/22/a Egodauyana, Moratuwa, Sri Lanka. <a href="mailto:shamaingdd@yahoo.com" title="Write Email">write to us</a> </p>
         </footer>
-        <script src="<?php echo base_url(); ?>application_resources/js/jquery-1.11.1.min.js" type="text/javascript"></script>
+        
         <script src="<?php echo base_url(); ?>application_resources/js/jquery-easing-1.3.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>application_resources/js/retina.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>application_resources/js/jquery.touchSwipe.min.js" type="text/javascript"></script>

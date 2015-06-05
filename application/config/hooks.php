@@ -9,8 +9,12 @@
 |	http://codeigniter.com/user_guide/general/hooks.html
 |
 */
-
-
+$hook['post_controller_constructor'] = array(
+		'class'    => 'User_log',
+		'function' => 'log_activity',
+		'filename' => 'user_log.php',
+		'filepath' => 'hooks'
+);
 
 /* End of file hooks.php */
 /* Location: ./application/config/hooks.php */

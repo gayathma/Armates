@@ -12,7 +12,7 @@ foreach ($results as $value) {
             </a>
         </div>
         <?php
-    } else {
+    } else if (!empty($value->video_link)) {
         ?>
         <div class="element  clearfix <?php echo $value->css_class; ?> home  <?php echo strtolower($value->category_name); ?> grey"> <a href="<?php echo $value->video_url; ?>" data-title="<?php echo $value->title; ?>" class="video-popup whole-tile">
                 <p class="small"><?php echo $value->category_name; ?></p>
@@ -23,6 +23,17 @@ foreach ($results as $value) {
                     <span class="arrow">→</span></div>
             </a> 
         </div>
+        <?php
+    } else {
+        ?>
+        <div class="element  clearfix <?php echo $value->css_class; ?> home <?php echo strtolower($value->category_name); ?> grey"> <a href="<?php echo site_url(); ?>/home/article_detail/<?php echo $value->id; ?>" data-title="" class="whole-tile">
+                <p class="small"><?php echo $value->category_name; ?></p>
+                <h3><?php echo $value->title; ?></h3>
+                <div class="bottom">
+                    <div class="icons like"></div>
+                    <p class="alignleft">Follow Us</p>
+                    <span class="arrow">→</span></div>
+            </a> </div>
         <?php
     }
 }

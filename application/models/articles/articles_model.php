@@ -12,6 +12,7 @@ class Articles_model extends CI_Model {
     var $description;
     var $video_url;
     var $css_class;
+    var $meta_tags;
     var $is_published;
     var $is_deleted;
     var $added_date;
@@ -61,6 +62,10 @@ class Articles_model extends CI_Model {
 
     public function get_css_class() {
         return $this->css_class;
+    }
+
+    public function get_meta_tags() {
+        return $this->meta_tags;
     }
 
     public function get_is_published() {
@@ -125,6 +130,10 @@ class Articles_model extends CI_Model {
 
     public function set_css_class($css_class) {
         $this->css_class = $css_class;
+    }
+
+    public function set_meta_tags($meta_tags) {
+        $this->meta_tags = $meta_tags;
     }
 
     public function set_is_published($is_published) {

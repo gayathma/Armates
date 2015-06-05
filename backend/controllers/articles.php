@@ -70,6 +70,7 @@ class Articles extends CI_Controller {
         $articles_model->set_description($this->input->post('description', TRUE));
         $articles_model->set_video_url($this->input->post('vid_url', TRUE));
         $articles_model->set_css_class($this->input->post('css_class', TRUE));
+        $articles_model->set_meta_tags($this->input->post('meta_tags', TRUE));
         $articles_model->set_added_by($this->session->userdata('USER_ID'));
         $articles_model->set_added_date(date("Y-m-d H:i:s"));
         $articles_model->set_is_published('1');
@@ -191,6 +192,7 @@ class Articles extends CI_Controller {
         $articles_model->set_description($this->input->post('description', TRUE));
         $articles_model->set_video_url($this->input->post('vid_url', TRUE));
         $articles_model->set_css_class($this->input->post('css_class', TRUE));
+        $articles_model->set_meta_tags($this->input->post('meta_tags', TRUE));
         $articles_model->set_updated_by($this->session->userdata('USER_ID'));
         $articles_model->set_updated_date(date("Y-m-d H:i:s"));
 

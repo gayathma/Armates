@@ -16,6 +16,9 @@ class Home extends CI_Controller {
 
         $this->load->model('article_images/article_images_model');
         $this->load->model('article_images/article_images_service');
+
+        $this->load->model('comments/comments_model');
+        $this->load->model('comments/comments_service');
     }
 
     function index() {
@@ -26,7 +29,7 @@ class Home extends CI_Controller {
         $data['results'] = $articles_service->get_all_articles();
         $data['cats']    = $article_cat_service->get_all_article_categories();
 
-        $parials = array('content' => 'article_list_view', 'nav' => 'template/nav');
+        $parials = array('content' => 'article_list_view', 'nav' => 'template/nav', 'contact' => 'template/contact');
         $this->template->load('template/main_template', $parials, $data);
     }
 
@@ -40,8 +43,18 @@ class Home extends CI_Controller {
         $data['article_images'] = $articles_images_service->get_images_for_article($id);
         $data['cats']           = $article_cat_service->get_all_article_categories();
 
-        $parials = array('content' => 'article_detail_view', 'nav' => 'template/nav');
+        $parials = array('content' => 'article_detail_view', 'nav' => 'template/nav', 'contact' => 'template/contact');
         $this->template->load('template/main_template', $parials, $data);
+    }
+
+    function send_contact_request() {
+        $comments_model   = new Comments_model();
+        $comments_service = new Comments_service();
+
+        $comments_model->set_name($this->input->post('name', TRUE));
+        $comments_model->set_email($this->input->post('email', TRUE));
+        $comments_model->set_description($this->input->post('description', TRUE));
+        echo $comments_service->add_comment($comments_model);
     }
 
 }

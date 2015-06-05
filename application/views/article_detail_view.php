@@ -1,24 +1,40 @@
-
-<div class="element clearfix col3-3 home">
-    <?php
-    foreach ($article_images as $article_image) {
-        ?>
-        <a href="<?php echo base_url(); ?>uploads/articles/ar_<?php echo $article->id; ?>/<?php echo $article_image->image_path; ?>" data-title="<?php echo $article->title; ?>" data-fancybox-group="group1" class="popup">
-            <figure class="images"> <img src="<?php echo base_url(); ?>uploads/articles/ar_<?php echo $article->id; ?>/<?php echo $article_image->image_path; ?>" alt="" />
-            </figure>
-        </a>
-        <div class="break"></div>
+<?php if (!empty($article_images)) { ?>
+    <div class="element clearfix col3-3 home">
         <?php
-    }
+        foreach ($article_images as $article_image) {
+            ?>
+            <a href="<?php echo base_url(); ?>uploads/articles/ar_<?php echo $article->id; ?>/<?php echo $article_image->image_path; ?>" data-title="<?php echo $article->title; ?>" data-fancybox-group="group1" class="popup">
+                <figure class="images"> <img src="<?php echo base_url(); ?>uploads/articles/ar_<?php echo $article->id; ?>/<?php echo $article_image->image_path; ?>" alt="" />
+                </figure>
+            </a>
+            <div class="break"></div>
+            <?php
+        }
+        ?>
+    </div>
+    <?php
+} else {
     ?>
-</div>
+    <div class="element  clearfix col2-3 home auto">
+        <div class="col2-3 auto">
+            <figure class="images"> <img src="images/02_preview02.jpg" alt="" /></figure>
+        </div>
+        <div class="col2-3 auto white-bottom">
+            <?php
+            echo $article->description;
+            ?>
+        </div>
+    </div>
+<?php } ?>
+
+
 <div class="element clearfix col1-3 home grey auto">
     <h3><strong><?php echo ucfirst($article->title); ?></strong></h3>
     <div class="ct-part">
         <p class="small">Category</p>
         <p><?php echo ucfirst($article->category_name); ?></p>
         <p class="small">Date</p>
-        <p><?php echo date('F d, Y ',strtotime($article->added_date)); ?></p>
+        <p><?php echo date('F d, Y ', strtotime($article->added_date)); ?></p>
         <p class="small">Client</p>
         <p><?php echo $article->client; ?></p>
     </div>

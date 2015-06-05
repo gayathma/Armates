@@ -92,6 +92,13 @@
                                 <textarea class="wysihtml5 form-control" id="description" name="description" rows="10"><?php echo $article->description; ?></textarea>
                             </div>
                         </div>
+                        
+                        <div class="form-group ">
+                            <div class="col-lg-12">
+                                <label for="meta_tags">Meta Tags</label>
+                                <textarea class="wysihtml5 form-control" id="meta_tags" name="meta_tags" rows="10"><?php echo $article->meta_tags; ?></textarea>
+                            </div>
+                        </div>
 
                         <div class="form-group">
                             <div class="col-lg-offset-11 col-lg-10">

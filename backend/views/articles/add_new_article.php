@@ -100,6 +100,15 @@
                                 </textarea>
                             </div>
                         </div>
+                        
+                        <div class="form-group ">
+                            <div class="col-lg-12">
+                                <label for="meta_tags">Meta Tags</label>
+                                <textarea class="wysihtml5 form-control" id="meta_tags" name="meta_tags" rows="10">
+                                    
+                                </textarea>
+                            </div>
+                        </div>
 
                         <div class="form-group">
                             <div class="col-lg-offset-11 col-lg-10">
