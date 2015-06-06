@@ -33,24 +33,24 @@ class Home extends CI_Controller {
         $this->template->load('template/main_template', $parials, $data);
     }
 
-    function article_detail($id) {
+    function article_detail($article_id) {
 
         $articles_service        = new Articles_service();
         $articles_images_service = new Article_images_service();
         $article_cat_service     = new Article_categories_service();
 
-        $data['article']        = $articles_service->get_article_by_id($id);
-        $data['article_images'] = $articles_images_service->get_images_for_article($id);
+        $data['article']        = $articles_service->get_article_by_id($article_id);
+        $data['article_images'] = $articles_images_service->get_images_for_article($article_id);
         $data['cats']           = $article_cat_service->get_all_article_categories();
 
-        $next         = $articles_service->get_next_article($id);
+        $next         = $articles_service->get_next_article($article_id);
         $data['next'] = $next;
         $data['next_image'] = NULL;
         if (!empty($next)) {
             $data['next_image'] = $articles_images_service->get_main_image_for_article($next->id);
         }
         
-        $prev         = $articles_service->get_prev_article($id);
+        $prev         = $articles_service->get_prev_article($article_id);
         $data['prev'] = $prev;
         $data['prev_image'] = NULL;
         if (!empty($prev)) {

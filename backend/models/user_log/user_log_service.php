@@ -12,7 +12,7 @@ class User_log_service extends CI_Model {
         $this->db->order_by('user_log.id', 'DESC');
 
         $query = $this->db->get();
-        $query->result();
+        return $query->result();
     }
 
 }

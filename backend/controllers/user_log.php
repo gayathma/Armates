@@ -22,7 +22,7 @@ class User_log extends CI_Controller {
 
         $data['heading'] = "Manage User Log";
         $data['results'] = $user_log_service->get_log();
-
+        
         $parials = array('content' => 'user_log/manage_user_log_view');
         $this->template->load('template/main_template', $parials, $data);
     }

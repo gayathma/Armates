@@ -2,10 +2,9 @@
 <?php
 if ($article->video_url != '') {
     ?>
-    <div class="element  clearfix col2-3 home auto">
-        <div class="element  clearfix col2-3 home auto">
-           <iframe src="http://player.vimeo.com/video/98330466?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff=0" class="videos" frameborder="0" title="Vimeo Example" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-        </div>
+   <div class="element home col3-3 clearfix auto">
+           <iframe src="<?php echo $article->video_url;?>" class="videos" frameborder="0" title="Vimeo Example" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
     </div>
     <?php
 }
