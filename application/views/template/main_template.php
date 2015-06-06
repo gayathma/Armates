@@ -3,7 +3,7 @@
 <!--[if IE 7]>     <html class="no-js ie7 lt-ie10 lt-ie9 lt-ie8 oldie" lang="en-US"> <![endif]-->
 <!--[if IE 8]>     <html class="no-js ie8 lt-ie10 lt-ie9 oldie" lang="en-US"> <![endif]-->
 <!--[if IE 9]>     <html class="no-js ie9 lt-ie10 oldie" lang="en-US"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" dir="ltr" lang="en-US"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" dir="ltr" lang="en-US" style="height: 100%!important;"> <!--<![endif]-->
 
     <head>
         <meta charset="utf-8" />
@@ -69,6 +69,8 @@
                             
                             <!-- Contact -->
                             <?php echo $contact;?>
+                            <!-- Pages -->
+                            <?php echo $pages;?>
                         </div>
                         <!-- end #container -->
                     </div>
@@ -81,8 +83,8 @@
         <!-- end wrap -->
 
         <footer id="footer" class="clearfix">
-            <p class="alignleft">Â© 2015, Armates. All Rights Reserved.</p>
-            <p class="alignright">No/22/a Egodauyana, Moratuwa, Sri Lanka. <a href="mailto:shamaingdd@yahoo.com" title="Write Email">write to us</a> </p>
+            <p class="alignleft">© 2015, Armates. All Rights Reserved.</p>
+            <p class="alignright">No/22/a Colombo, Sri Lanka. <a href="mailto:shamaingdd@yahoo.com" title="Write Email">write to us</a> </p>
         </footer>
         
         <script src="<?php echo base_url(); ?>application_resources/js/jquery-easing-1.3.js" type="text/javascript"></script>
@@ -98,6 +100,7 @@
         <script src="<?php echo base_url(); ?>application_resources/js/preloader.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>application_resources/js/jquery.fancybox.pack.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>application_resources/js/jquery.sliphover.min.js"></script>
+        <script src="<?php echo base_url(); ?>application_resources/js/jquery.fitvids.js" type="text/javascript"></script>
         <script>
             $('#logo').hover(
                     function() {

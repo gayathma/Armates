@@ -1,3 +1,16 @@
+
+<?php
+if ($article->video_url != '') {
+    ?>
+    <div class="element  clearfix col2-3 home auto">
+        <div class="element  clearfix col2-3 home auto">
+           <iframe src="http://player.vimeo.com/video/98330466?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff=0" class="videos" frameborder="0" title="Vimeo Example" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        </div>
+    </div>
+    <?php
+}
+?>
+
 <?php if (!empty($article_images)) { ?>
     <div class="element clearfix col3-3 home">
         <?php
@@ -26,6 +39,7 @@
         </div>
     </div>
 <?php } ?>
+
 
 
 <div class="element clearfix col1-3 home grey auto">
@@ -71,12 +85,22 @@
         </blockquote>
     </div>
 <?php } ?>
-<div class="element  clearfix col1-3 home"> <a href="#" title="">
-        <figure class="images"> <img src="images/work07.jpg" alt="Previous<span>Invitation Greeting Card</span><i>â†’</i>" class="slip" /> </figure>
-    </a> </div>
-<div class="element  clearfix col1-3 home"> <a href="#" title="">
-        <figure class="images"> <img src="images/work04.jpg" alt="Next<span>Square Magazine</span><i>â†’</i>" class="slip" /> </figure>
-    </a> </div>
+
+<?php if (!empty($prev)) {
+    ?>
+    <div class="element  clearfix col1-3 home"> <a href="#" title="">
+            <figure class="images"> <img src="<?php echo base_url(); ?>uploads/articles/ar_<?php echo $prev->id; ?>/<?php echo $prev_image->image_path; ?>" alt="Previous<span><?php echo $prev->title; ?></span><i>â†’</i>" class="slip" /> </figure>
+        </a>
+    </div>
+<?php } ?>
+<?php if (!empty($next)) { ?>
+    <div class="element  clearfix col1-3 home"> <a href="#" title="">
+            <figure class="images"> 
+                <img src="<?php echo base_url(); ?>uploads/articles/ar_<?php echo $next->id; ?>/<?php echo $next_image->image_path; ?>" alt="Next<span><?php echo $next->title; ?></span><i>â†’</i>" class="slip" /> 
+            </figure>
+        </a> 
+    </div>
+<?php } ?>
 <div class="element clearfix col1-3 home grey back-button"><a href="index-2.html#portfolio" title="" class="whole-tile">
         <h5>Back to Portfolio<span class="arrow">â†’</span></h5>
     </a>

@@ -7,7 +7,7 @@
             <?php
             foreach ($cats as $cat) {
                 ?>
-            <li> <a href="<?php echo site_url(); ?>/home#<?php echo strtolower($cat->name); ?>"><?php echo ucfirst($cat->name); ?></a> </li>
+            <li> <a href="<?php echo site_url(); ?>/home#<?php echo strtolower(str_replace(' ', '_', $cat->name)); ?>"><?php echo ucfirst($cat->name); ?></a> </li>
                 <?php
             }
             ?>

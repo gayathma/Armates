@@ -210,4 +210,17 @@ class Articles extends CI_Controller {
         echo $article_images_service->main_image($image_id, $status);
     }
 
+    function delete_image() {
+        $article_images_service = new Article_images_service();
+
+        $image_id = $this->input->post('image_id', TRUE);
+        $path     = $this->input->post('path', TRUE);
+        $article_id    = $this->input->post('article_id', TRUE);
+        
+        unlink('uploads\\articles\\ar_' . $article_id . '\\'.$path);
+        unlink('uploads\\articles\\ar_' . $article_id . '\\thumbnail\\'.$path);
+
+        echo $article_images_service->delete_image($image_id);
+    }
+
 }

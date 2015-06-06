@@ -51,5 +51,35 @@ class Articles_service extends CI_Model {
         $query = $this->db->get();
         return $query->row();
     }
+    
+    function get_next_article($id) {
+
+
+        $this->db->select('articles.*,article_categories.name as category_name');
+        $this->db->from('articles');
+        $this->db->join('article_categories', 'article_categories.id = articles.article_category');
+        $this->db->where('articles.is_deleted', '0');
+        $this->db->where('articles.is_published', '1');
+        $this->db->where('articles.id >'.$id);
+        $this->db->order_by("articles.id");
+        $this->db->limit(1);
+        $query = $this->db->get();
+        return $query->row();
+    }
+    
+    function get_prev_article($id) {
+
+
+        $this->db->select('articles.*,article_categories.name as category_name');
+        $this->db->from('articles');
+        $this->db->join('article_categories', 'article_categories.id = articles.article_category');
+        $this->db->where('articles.is_deleted', '0');
+        $this->db->where('articles.is_published', '1');
+        $this->db->where('articles.id <'.$id);
+        $this->db->order_by("articles.id",'desc');
+        $this->db->limit(1);
+        $query = $this->db->get();
+        return $query->row();
+    }
 
 }

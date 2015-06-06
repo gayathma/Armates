@@ -119,10 +119,7 @@
                         </td>
                         <td>
                         {% if (file.deleteUrl) { %}
-                        <button class="btn btn-danger delete" data-type="{%=file.deleteType%}" data-url="{%=file.deleteUrl%}"{% if (file.deleteWithCredentials) { %} data-xhr-fields='{"withCredentials":true}'{% } %}>
-                        <i class="glyphicon glyphicon-trash"></i>
-                        <span>Delete</span>
-                        </button>
+                        
                         {% } else { %}
                         <button class="btn btn-warning cancel">
                         <i class="glyphicon glyphicon-ban-circle"></i>

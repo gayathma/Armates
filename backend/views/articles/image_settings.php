@@ -13,11 +13,18 @@
             <div class="panel-body">
                 <div class="form">
                     <table class="table table-hover p-table">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Is Main Image</th>
+                                <th>Options</th>
+                            </tr>
+                        </thead>
                         <tbody>
                             <?php
                             foreach ($images as $image) {
                                 ?>
-                                <tr>
+                                <tr id="img_<?php echo $image->id; ?>">
                                     <td>
                                         <span class="preview">
                                             <a href="<?php echo base_url(); ?>/uploads/articles/ar_<?php echo $id; ?>/<?php echo $image->image_path; ?>"  data-gallery><img src="<?php echo base_url(); ?>/uploads/articles/ar_<?php echo $id; ?>/<?php echo $image->image_path; ?>" width="100px"></a>
@@ -30,10 +37,15 @@
                                                 echo 'checked="checked"';
                                             }
                                             ?>  type="checkbox" value="<?php echo $image->id; ?>" onclick="change_main(<?php echo $image->id; ?>, this)"  class="checkbox">
-                                            </label>
 
                                         </div>
 
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-danger delete" onclick="delete_image('<?php echo $image->id; ?>','<?php echo $image->image_path; ?>','<?php echo $image->article_id; ?>')">
+                                            <i class="glyphicon glyphicon-trash"></i>
+                                            <span>Delete</span>
+                                        </button>
                                     </td>
                                 </tr>
                             <?php } ?>
@@ -45,22 +57,34 @@
     </div>
 </div>
 <script>
-    $('#articles_menu').addClass('active');
+                                                $('#articles_menu').addClass('active');
 
-    function change_main(image_id, element) {
+                                                function change_main(image_id, element) {
 
-        var main;
-        if ($(element).is(':checked')) {
-            main = 1;
-        } else {
-            main = 0;
-        }
+                                                    var main;
+                                                    if ($(element).is(':checked')) {
+                                                        main = 1;
+                                                    } else {
+                                                        main = 0;
+                                                    }
 
-        $.post(site_url + '/articles/change_image_main', {image_id: image_id, main: main}, function(msg)
-        {
+                                                    $.post(site_url + '/articles/change_image_main', {image_id: image_id, main: main}, function(msg)
+                                                    {
 
-        });
-    }
+                                                    });
+                                                }
+
+                                                function delete_image(image_id, path, article_id) {
+
+
+
+                                                    $.post(site_url + '/articles/delete_image', {image_id: image_id, path: path, article_id: article_id}, function(msg)
+                                                    {
+                                                        if (msg == 1) {
+                                                            $('#img_' + image_id).hide();
+                                                        }
+                                                    });
+                                                }
 
 </script>
 

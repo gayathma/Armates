@@ -29,7 +29,7 @@ class Home extends CI_Controller {
         $data['results'] = $articles_service->get_all_articles();
         $data['cats']    = $article_cat_service->get_all_article_categories();
 
-        $parials = array('content' => 'article_list_view', 'nav' => 'template/nav', 'contact' => 'template/contact');
+        $parials = array('content' => 'article_list_view', 'nav'     => 'template/nav', 'contact' => 'template/contact', 'pages'   => 'template/pages');
         $this->template->load('template/main_template', $parials, $data);
     }
 
@@ -43,7 +43,21 @@ class Home extends CI_Controller {
         $data['article_images'] = $articles_images_service->get_images_for_article($id);
         $data['cats']           = $article_cat_service->get_all_article_categories();
 
-        $parials = array('content' => 'article_detail_view', 'nav' => 'template/nav', 'contact' => 'template/contact');
+        $next         = $articles_service->get_next_article($id);
+        $data['next'] = $next;
+        $data['next_image'] = NULL;
+        if (!empty($next)) {
+            $data['next_image'] = $articles_images_service->get_main_image_for_article($next->id);
+        }
+        
+        $prev         = $articles_service->get_prev_article($id);
+        $data['prev'] = $prev;
+        $data['prev_image'] = NULL;
+        if (!empty($prev)) {
+            $data['prev_image'] = $articles_images_service->get_main_image_for_article($prev->id);
+        }
+
+        $parials = array('content' => 'article_detail_view', 'nav'     => 'template/nav', 'contact' => 'template/contact', 'pages'   => 'template/pages');
         $this->template->load('template/main_template', $parials, $data);
     }
 

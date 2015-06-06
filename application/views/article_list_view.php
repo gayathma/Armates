@@ -6,7 +6,7 @@ foreach ($results as $value) {
     <?php
     if (!empty($image)) {
         ?>
-        <div class="element  clearfix <?php echo $value->css_class; ?> home <?php echo strtolower($value->category_name); ?> photography">
+        <div class="element portfolio  clearfix <?php echo $value->css_class; ?> home <?php echo strtolower(str_replace(' ', '_',$value->category_name)); ?> photography">
             <a href="<?php echo site_url(); ?>/home/article_detail/<?php echo $value->id; ?>" title="">
                 <figure class="images"> <img src="<?php echo base_url(); ?>uploads/articles/ar_<?php echo $value->id; ?>/<?php echo $image->image_path; ?>" alt="<span><?php echo $value->title; ?></span><i>→</i>" class="slip" /> </figure>
             </a>
@@ -14,7 +14,7 @@ foreach ($results as $value) {
         <?php
     } else if (!empty($value->video_link)) {
         ?>
-        <div class="element  clearfix <?php echo $value->css_class; ?> home  <?php echo strtolower($value->category_name); ?> grey"> <a href="<?php echo $value->video_url; ?>" data-title="<?php echo $value->title; ?>" class="video-popup whole-tile">
+        <div class="element portfolio  clearfix <?php echo $value->css_class; ?> home  <?php echo strtolower(str_replace(' ', '_',$value->category_name)); ?> grey"> <a href="<?php echo $value->video_url; ?>?title=0&byline=0&portrait=0&color=ffffff=0&autoplay=1" data-title="<?php echo $value->title; ?>" class="video-popup whole-tile">
                 <p class="small"><?php echo $value->category_name; ?></p>
                 <h3><?php echo $value->title; ?></h3>
                 <div class="bottom">
@@ -26,7 +26,7 @@ foreach ($results as $value) {
         <?php
     } else {
         ?>
-        <div class="element  clearfix <?php echo $value->css_class; ?> home <?php echo strtolower($value->category_name); ?> grey"> <a href="<?php echo site_url(); ?>/home/article_detail/<?php echo $value->id; ?>" data-title="" class="whole-tile">
+        <div class="element portfolio clearfix <?php echo $value->css_class; ?> home <?php echo strtolower(str_replace(' ', '_',$value->category_name)); ?> grey"> <a href="<?php echo site_url(); ?>/home/article_detail/<?php echo $value->id; ?>" data-title="" class="whole-tile">
                 <p class="small"><?php echo $value->category_name; ?></p>
                 <h3><?php echo $value->title; ?></h3>
                 <div class="bottom">
