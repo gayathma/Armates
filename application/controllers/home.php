@@ -19,17 +19,28 @@ class Home extends CI_Controller {
 
         $this->load->model('comments/comments_model');
         $this->load->model('comments/comments_service');
+
+        $this->load->model('content/content_model');
+        $this->load->model('content/content_service');
     }
 
     function index() {
 
         $articles_service    = new Articles_service();
         $article_cat_service = new Article_categories_service();
+        $content_model       = new Content_model();
+        $content_service     = new Content_service();
 
         $data['results'] = $articles_service->get_all_articles();
         $data['cats']    = $article_cat_service->get_all_article_categories();
 
-        $parials = array('content' => 'article_list_view', 'nav'     => 'template/nav', 'contact' => 'template/contact', 'pages'   => 'template/pages');
+        $content_model->setContent_hcode('ABOUT');
+        $data['about'] = $content_service->get_content_by_hcode($content_model);
+
+        $content_model->setContent_hcode('BLOG');
+        $data['blog'] = $content_service->get_content_by_hcode($content_model);
+
+        $parials = array('content' => 'article_list_view', 'nav' => 'template/nav', 'contact' => 'template/contact', 'pages' => 'template/pages');
         $this->template->load('template/main_template', $parials, $data);
     }
 
@@ -43,21 +54,21 @@ class Home extends CI_Controller {
         $data['article_images'] = $articles_images_service->get_images_for_article($article_id);
         $data['cats']           = $article_cat_service->get_all_article_categories();
 
-        $next         = $articles_service->get_next_article($article_id);
-        $data['next'] = $next;
+        $next               = $articles_service->get_next_article($article_id);
+        $data['next']       = $next;
         $data['next_image'] = NULL;
         if (!empty($next)) {
             $data['next_image'] = $articles_images_service->get_main_image_for_article($next->id);
         }
-        
-        $prev         = $articles_service->get_prev_article($article_id);
-        $data['prev'] = $prev;
+
+        $prev               = $articles_service->get_prev_article($article_id);
+        $data['prev']       = $prev;
         $data['prev_image'] = NULL;
         if (!empty($prev)) {
             $data['prev_image'] = $articles_images_service->get_main_image_for_article($prev->id);
         }
 
-        $parials = array('content' => 'article_detail_view', 'nav'     => 'template/nav', 'contact' => 'template/contact', 'pages'   => 'template/pages');
+        $parials = array('content' => 'article_detail_view', 'nav' => 'template/nav', 'contact' => 'template/contact', 'pages' => 'template/pages');
         $this->template->load('template/main_template', $parials, $data);
     }
 
