@@ -34,10 +34,10 @@ class Home extends CI_Controller {
         $data['results'] = $articles_service->get_all_articles();
         $data['cats']    = $article_cat_service->get_all_article_categories();
 
-        $content_model->setContent_hcode('ABOUT');
+        $content_model->set_content_hcode('ABOUTUS');
         $data['about'] = $content_service->get_content_by_hcode($content_model);
 
-        $content_model->setContent_hcode('BLOG');
+        $content_model->set_content_hcode('BLOG');
         $data['blog'] = $content_service->get_content_by_hcode($content_model);
 
         $parials = array('content' => 'article_list_view', 'nav' => 'template/nav', 'contact' => 'template/contact', 'pages' => 'template/pages');
@@ -49,6 +49,17 @@ class Home extends CI_Controller {
         $articles_service        = new Articles_service();
         $articles_images_service = new Article_images_service();
         $article_cat_service     = new Article_categories_service();
+        $content_model       = new Content_model();
+        $content_service     = new Content_service();
+
+        $data['results'] = $articles_service->get_all_articles();
+        $data['cats']    = $article_cat_service->get_all_article_categories();
+
+        $content_model->set_content_hcode('ABOUTUS');
+        $data['about'] = $content_service->get_content_by_hcode($content_model);
+
+        $content_model->set_content_hcode('BLOG');
+        $data['blog'] = $content_service->get_content_by_hcode($content_model);
 
         $data['article']        = $articles_service->get_article_by_id($article_id);
         $data['article_images'] = $articles_images_service->get_images_for_article($article_id);
