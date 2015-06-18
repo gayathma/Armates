@@ -88,19 +88,19 @@ if ($article->video_url != '') {
 <?php if (!empty($prev)) {
     ?>
     <div class="element  clearfix col1-3 home"> <a href="#" title="">
-            <figure class="images"> <img src="<?php echo base_url(); ?>uploads/articles/ar_<?php echo $prev->id; ?>/<?php echo $prev_image->image_path; ?>" alt="Previous<span><?php echo $prev->title; ?></span><i>â†’</i>" class="slip" /> </figure>
+            <figure class="images"> <img src="<?php echo base_url(); ?>uploads/articles/ar_<?php echo $prev->id; ?>/<?php echo $prev_image->image_path; ?>" alt="Previous<span><?php echo $prev->title; ?></span><i>→</i>" class="slip" /> </figure>
         </a>
     </div>
 <?php } ?>
 <?php if (!empty($next)) { ?>
     <div class="element  clearfix col1-3 home"> <a href="#" title="">
             <figure class="images"> 
-                <img src="<?php echo base_url(); ?>uploads/articles/ar_<?php echo $next->id; ?>/<?php echo $next_image->image_path; ?>" alt="Next<span><?php echo $next->title; ?></span><i>â†’</i>" class="slip" /> 
+                <img src="<?php echo base_url(); ?>uploads/articles/ar_<?php echo $next->id; ?>/<?php echo $next_image->image_path; ?>" alt="Next<span><?php echo $next->title; ?></span><i>→</i>" class="slip" /> 
             </figure>
         </a> 
     </div>
 <?php } ?>
 <div class="element clearfix col1-3 home grey back-button"><a href="index-2.html#portfolio" title="" class="whole-tile">
-        <h5>Back to Portfolio<span class="arrow">â†’</span></h5>
+        <h5>Back to Portfolio<span class="arrow">→</span></h5>
     </a>
 </div>
