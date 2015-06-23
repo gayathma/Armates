@@ -40,7 +40,7 @@ class Home extends CI_Controller {
         $content_model->set_content_hcode('BLOG');
         $data['blog'] = $content_service->get_content_by_hcode($content_model);
 
-        $parials = array('content' => 'article_list_view', 'nav' => 'template/nav', 'contact' => 'template/contact', 'pages' => 'template/pages');
+        $parials = array('content' => 'article_list_view', 'nav' => 'template/nav', 'contact' => 'template/contact', 'pages' => 'template/pages','services'=>'template/services');
         $this->template->load('template/main_template', $parials, $data);
     }
 

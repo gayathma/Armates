@@ -73,6 +73,8 @@
                             <?php echo $contact;?>
                             <!-- Pages -->
                             <?php echo $pages;?>
+                            
+                             <?php echo $services;?>
                         </div>
                         <!-- end #container -->
                     </div>
