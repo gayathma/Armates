@@ -11,7 +11,7 @@
         <!-- Set the viewport width to device width for mobile -->
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
         <meta name="author" content="armates">
-        <meta name="keywords" content="armates,ARmates,ar,AR,Augmented,reality,Interactive, Connected Business, Connected Enterprise,developer, portal, open, source, web, services, cloud, computing, Java, PaaS, platform, projects, developers, architects, community, software, enterprise, integration,videos,logo,website,3D,models" />
+        <meta name="keywords" content="armates,ARmates,ar,AR,Augmented Reality Application,reality,Interactive, Connected Business, Connected Enterprise,developer, portal, open, source, web, services, cloud, computing, Java, PaaS, platform, projects, developers, architects, community, software, enterprise, integration,videos,logo,website,3D,models,video promos" />
         <meta name="description" content="Armates is a digital media entertainment firm specialised in augmented reality application development." />
         <meta name="revisit-after" content="1 day" />
         <title>Armates - Augmented reality solutions</title>

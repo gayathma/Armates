@@ -100,7 +100,7 @@ if ($article->video_url != '') {
         </a> 
     </div>
 <?php } ?>
-<div class="element clearfix col1-3 home grey back-button"><a href="index-2.html#portfolio" title="" class="whole-tile">
+<div class="element clearfix col1-3 home grey back-button"><a href="<?php echo site_url();?>#portfolio" title="" class="whole-tile">
         <h5>Back to Portfolio<span class="arrow">→</span></h5>
     </a>
 </div>
