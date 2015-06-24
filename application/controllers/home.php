@@ -79,7 +79,7 @@ class Home extends CI_Controller {
             $data['prev_image'] = $articles_images_service->get_main_image_for_article($prev->id);
         }
 
-        $parials = array('content' => 'article_detail_view', 'nav' => 'template/nav', 'contact' => 'template/contact', 'pages' => 'template/pages');
+        $parials = array('content' => 'article_detail_view', 'nav' => 'template/nav', 'contact' => 'template/contact', 'pages' => 'template/pages', 'services' => 'template/services');
         $this->template->load('template/main_template', $parials, $data);
     }
 
