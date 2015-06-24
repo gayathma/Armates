@@ -23,7 +23,7 @@
     <div class="elem-content">
         <p class="small">Contact Form</p>
         <h3>Drop Us a Line</h3>
-        <form class="form-part" method="post" name="contactform" id="contactform" autocomplete="off">
+        <form class="form-part" method="post" name="contactform" id="contactformcustom" autocomplete="off">
             <input name="name" type="text" id="name" size="30" title="Name" />
             <input name="email" type="text" id="email" size="30" title="Email" />
             <textarea name="comments" cols="40" rows="3" id="comments" title="Tell us what you think!"></textarea>
@@ -35,12 +35,12 @@
 </div>
 <div class="element  clearfix col1-3 contact grey">
     <p class="small">Address</p>
-    <h3>Hempstead Agency</h3>
+    <h3>ARMATES</h3>
     <ul class="unordered-list">
-        <li>285 Lexington Ave, <br />
-            New York, NY </li>
-        <li>(845)&nbsp;123-4567</li>
-        <li><a href="mailto:info@barrow.com" title="Write Email">info@barrow.com</a></li>
+        <li>Colombo, <br />
+            Sri Lanka. </li>
+        <li>(094)&nbsp;75-8376047</li>
+        <li><a href="mailto:shamaingdd@yahoo.com" title="Write Email">shamaingdd@yahoo.com</a></li>
     </ul>
 </div>
 <div class="element  clearfix col1-3 pricing white"> <a href="#contact" data-title="" class="whole-tile">
@@ -52,7 +52,7 @@
     </a> 
 </div>
 <script>
-    $("form#contactform").validate({
+    $("form#contactformcustom").validate({
         rules: {
             name: 'required',
             email: {
@@ -67,7 +67,7 @@
                 $('#message').hide();
                 $('#submit').attr('disabled', 'disabled');
 
-                $.post('<?php echo site_url(); ?>/home/send_contact_request', $('#contactform').serialize(), function(msg)
+                $.post('<?php echo site_url(); ?>/home/send_contact_request', $('#contactformcustom').serialize(), function(msg)
                 {
                     if (msg == 1) {
                         $('#message').html('success');

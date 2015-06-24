@@ -40,7 +40,7 @@ class Home extends CI_Controller {
         $content_model->set_content_hcode('BLOG');
         $data['blog'] = $content_service->get_content_by_hcode($content_model);
 
-        $parials = array('content' => 'article_list_view', 'nav' => 'template/nav', 'contact' => 'template/contact', 'pages' => 'template/pages','services'=>'template/services');
+        $parials = array('content' => 'article_list_view', 'nav' => 'template/nav', 'contact' => 'template/contact', 'pages' => 'template/pages', 'services' => 'template/services');
         $this->template->load('template/main_template', $parials, $data);
     }
 
@@ -49,8 +49,8 @@ class Home extends CI_Controller {
         $articles_service        = new Articles_service();
         $articles_images_service = new Article_images_service();
         $article_cat_service     = new Article_categories_service();
-        $content_model       = new Content_model();
-        $content_service     = new Content_service();
+        $content_model           = new Content_model();
+        $content_service         = new Content_service();
 
         $data['results'] = $articles_service->get_all_articles();
         $data['cats']    = $article_cat_service->get_all_article_categories();
@@ -89,8 +89,31 @@ class Home extends CI_Controller {
 
         $comments_model->set_name($this->input->post('name', TRUE));
         $comments_model->set_email($this->input->post('email', TRUE));
-        $comments_model->set_description($this->input->post('description', TRUE));
-        echo $comments_service->add_comment($comments_model);
+        $comments_model->set_description($this->input->post('comments', TRUE));
+        $comments_model->set_is_published('1');
+        $comments_model->set_is_deleted('0');
+        $comments_model->set_added_date(date('Y-m-d H:i:s'));
+
+        $comments_service->add_comment($comments_model);
+
+        $email            = 'shamaingdd@yahoo.com';
+        $email_subject    = "Customer Inquiry from ARMATES";
+        $from             = $this->input->post('email', TRUE);
+        $name             = $this->input->post('name', TRUE);
+        $data['name']     = $name;
+        $data['comments'] = $this->input->post('comments', TRUE);
+        $msg              = $this->load->view('mail_template', $data, TRUE);
+
+        $headers = 'MIME-Version: 1.0' . "\r\n";
+        $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+        $headers .= "From: $name <$from>" . "\r\n";
+        $headers .= 'Cc: gayathma3@gmail.com' . "\r\n";
+
+        if (mail($email, $email_subject, $msg, $headers)) {
+            echo "1";
+        } else {
+            echo "0";
+        }
     }
 
 }
